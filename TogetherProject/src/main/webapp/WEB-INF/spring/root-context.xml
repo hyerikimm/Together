@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+	<!-- 이건 클래스에 Service와 repository를 생성하면 그때 주석 풀어주세요! -->
+ 	<!-- <context:component-scan base-package="com.kh.tresure">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>   
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/> 
+	</context:component-scan>	 -->
+		
+		
+	<!-- DB연결 설정 3단계 -->
+	 
+	<!-- 1단계) DB연결을 위한 도구 설정 -->
+	<bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource" destroy-method="close">
+	 	<!-- 어느 DB에 연결할 것인지 지정 -->
+	 	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+	 	<property name="url" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:xe" />
+	 	<property name="username" value="TOGETER" />
+	 	<property name="password" value="TOGETER" />
+	</bean>
+		
+	<!--  DB연결 2단계 작성 -->
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
+		<!--  mybatis 설정파일 위치를 지정 (src/main/resources)-->
+		<property name="configLocation" value="classpath:mybatis-config.xml"/> <!-- classpath : resources를 의미 -->
+		<!-- 연결을 위한 도구 -->
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<!--  DB 연결 3단계 작성 -->
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+		<!--  sql 명령어 실행을 위한 도구에 대한 참조 -->
+		<constructor-arg ref="sqlSessionFactory"/>
+	</bean>
+		
+		
+	<!-- 스프링에서 사용하는 proxy를 이용한 트랜잭션 제어가 안 먹힐 경우 트랜잭션 매니저를 추가해서 문제를 해결한다 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- Autowired 주입방식과 동일하다고 보면 된다. -->
+	</bean>
+		
+		
+	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+		<!-- defaultEncoding : 업로드 되는 파일에 대한 인코딩처리를 어떻게 할 것인지 여부 -->
+		<property name="defaultEncoding" value="UTF-8"/>
+		
+		<!-- 
+			maxUploadSize: 한번에 전체 업로드 되는 파일의 총 용량 설정.
+			maxInMemorySize(maxUploadSizePerFile) : 디스크에 임시파일을 생성하기전에 메모리에 보관할수있는 최대바이트 크기.
+		 -->
+		<property name="maxUploadSize" value="10000000"/>
+		<property name="maxInMemorySize" value="10000000"/>
+	</bean>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+</beans>
