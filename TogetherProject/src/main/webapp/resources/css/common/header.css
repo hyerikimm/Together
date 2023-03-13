@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+	body{
+	    font-family: 'S-CoreDream-3Light';
+	    padding: 0px;
+	    margin: 0px;
+	}
+	.headerMain-div{
+		width: 100%;
+	    height: 300px;
+	    background-color: #f4f5f9;
+	    position: sticky; /*fixed랑 비슷하게 자리 고정*/
+	    top:0;
+	   	z-index:1;
+	}
+	.logoImage{
+		width:800px;
+		margin:auto;
+		position:absolute;
+		left:25%;
+		top:10%;
+	}
+	
+	/*네비바*/
+	.navBar{
+		margin:auto;
+		position:absolute;
+		background-color: #5A9367;
+		width: 100%;
+		height: 100px;
+		top:100%;
+	}
+	.navText{
+		margin:35px 50px;
+		padding-left: 33%;
+		
+	}
+	.navText > a{
+		color:white;
+		font-weight:600;
+		font-size:20px;
+		text-decoration-line :none;
+		padding:20px;
+	}
+	.navText > a:hover{
+		text-decoration: underline #a6172d dotted 5px ;
+	}
+	
+	/*로그인,회원가입*/
+	.login{
+		margin:30px 42px;
+		padding-left: 70%;
+		display: inline-block;
+	}
+	.login > a {
+		color:#5A9367;
+		font-weight:900;
+		font-size:18px;
+		text-decoration-line :none;
+		padding:15px;
+	}
+	.login > a:hover{
+		border:solid 1px #5A9367;
+		border-radius:35px;
+		background:#5A9367;
+		color:white;
+	}

@@ -8,6 +8,6 @@
 <body>
 <jsp:include page="./common/header.jsp"/>
 
-하이!
+
 </body>
 </html>

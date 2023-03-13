@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+body, *{
+    font-family: 'S-CoreDream-3Light';
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+.headerMain-div{
+	width: 100%;
+    height: 300px;
+    background-color: #f4f5f9;
+    position: sticky; /*fixed랑 비슷하게 자리 고정*/
+    top:0;
+   	z-index:1;
+}
+.logoImage{
+	width:800px;
+	margin:auto;
+	position:absolute;
+	left:25%;
+	top:10%;
+}
+.loginForm{
+	position: absolute;
+    top: 125%;
+    left: 41%;
+}
+.loginForm input{
+	width:250px;
+	height:40px;
+	margin:10px;
+	font-size: 15px;
+  	color: #222222;
+    border: none;
+    border-bottom: solid #5A9367 1px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    position: relative;
+    background: none;
+    z-index: 5;
+}
+input::placeholder{
+	font-family: 'S-CoreDream-3Light';
+	font-weight:900;
+	color: #5A9367;
+}
+input:focus { 
+	outline: none; 
+}
+
+.loginForm button{
+	background: white;
+	border: 1px solid  #5A9367;
+	border-radius:15px;
+	color:#5A9367;
+	width: 80px;
+    height: 110px;
+    position: absolute;
+    top: 1%;
+}
+.loginForm button:hover{
+	cursor:pointer;
+	background: #5A9367;
+	color:white;
+	font-weight:900;
+	font-size:15px;
+}
