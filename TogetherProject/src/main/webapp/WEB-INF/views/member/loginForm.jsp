@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/together/resources/css/common/font.css">
 <link rel="stylesheet" href="/together/resources/css/member/loginForm.css">
-<title>l o g i n</title>
+<title>login</title>
 </head>
 <body>
 	<div class="headerMain-div">

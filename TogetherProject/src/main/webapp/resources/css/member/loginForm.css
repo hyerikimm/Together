@@ -33,7 +33,7 @@ body, *{
 	font-size: 15px;
   	color: #222222;
     border: none;
-    border-bottom: solid #5A9367 1px;
+    border-bottom: solid #5A9367 2px;
     padding-bottom: 10px;
     padding-left: 10px;
     position: relative;
@@ -51,7 +51,7 @@ input:focus {
 
 .loginForm button{
 	background: white;
-	border: 1px solid  #5A9367;
+	border: 2px solid  #5A9367;
 	border-radius:15px;
 	color:#5A9367;
 	width: 80px;
