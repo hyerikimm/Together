@@ -24,7 +24,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 				<i class="fa-brands fa-pagelines fa-2xl" style="font-weight:100; color:white;"></i>
 				<a href="#" class="">메리크리스마스</a>
 				<a href="#" class="">포트폴리오</a>
-				<a href="#" class="">방명록</a>
+				<a href="${pageContext.request.contextPath}/board/boardList" class="">방명록</a>
 			</div>
 			<div class="login">
 				<a href="${pageContext.request.contextPath}/member/loginForm" class="">로그인</a>
