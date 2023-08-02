@@ -28,7 +28,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 			</div>
 			<div class="login">
 				<a href="${pageContext.request.contextPath}/member/loginForm" class="">로그인</a>
-				<a href="#" class="">회원가입</a>
+				<a href="${pageContext.request.contextPath}/member/joinForm" class="">회원가입</a>
 			</div>
 		</div>
 	

@@ -43,6 +43,13 @@ public class MemberController {
 		logger.info(">> 로그인 폼으로 이동");
 		return "member/loginForm";
 	}
+	
+	@RequestMapping(value = "member/joinForm", method = {RequestMethod.GET })
+	public String joinMember(Model model, HttpSession session) {
+
+		logger.info(">> 회원가입 폼으로 이동");
+		return "member/joinForm";
+	}
 	/*
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, HttpSession session, Member member) {

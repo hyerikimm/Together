@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/together/resources/css/common/font.css">
 <link rel="stylesheet" href="/together/resources/css/member/loginForm.css">
+<link rel="stylesheet" href="/together/resources/css/board/mainBoard.css">
 <title>boardList</title>
 </head>
 <body>
