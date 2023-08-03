@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/together/resources/css/common/font.css">
 <link rel="stylesheet" href="/together/resources/css/member/loginForm.css">
-<link rel="stylesheet" href="/together/resources/css/board/mainBoard.css">
+<link rel="stylesheet" href="/together/resources/css/common/main.css">
 <title>boardList</title>
 </head>
 <body>
@@ -83,7 +83,7 @@
 				</c:choose>
 				<c:if test="${empty resultList}">
 					<tr class="emptyNote"><td colspan="7" class="textC"> 게시물이 없습니다.</td></tr>
-				</c:if>				
+				</c:if>
 			</tbody>
 		</table>
 

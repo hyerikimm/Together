@@ -12,7 +12,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class Member {
+	private String idx;
 	private String userNo;
+	private String userId;
+	private String userPwd;
 	private String userName;
 	private String phone;
 	private String email;

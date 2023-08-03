@@ -9,19 +9,22 @@
 <link rel="stylesheet" href="/together/resources/css/common/font.css">
 <link rel="stylesheet" href="/together/resources/css/member/loginForm.css">
 <link rel="stylesheet" href="/together/resources/css/member/joinForm.css">
+<link rel="stylesheet" href="/together/resources/css/common/main.css">
 <title>join</title>
 </head>
 <body>
 	<div class="headerMain-div">
 		<a href="${pageContext.request.contextPath}"><img src="/together/resources/images/logo.png" class="logoImage"></a>
 	</div>
+	<form name="joinForm" method="post" action="/member/joinProcess.do" >
+	
 	<div class="contentWrap">
 		<section id="content">
 			<ul class="joinForm">
 				<h2> 회원가입 </h2>
 				<li>
-					<label for="userNm" class="label">성명</label>
-					<input id="userNm" type="text" value="${resultVO.userNm}">
+					<label for="userName" class="label">성명</label>
+					<input id="userName" type="text">
 				</li>
 				<li>
 					<label for="userId" class="label">아이디</label>
@@ -43,12 +46,12 @@
 				</li>
 				<li>
 					<label for="mobile" class="label">휴대폰번호</label>
-					<input type="text" name="mobile" id="mobile" oninput="phoneNumber(this)" maxlength="13">
+					<input type="text" name="phone" id="phone" oninput="phoneNumber(this)" maxlength="13">
 					<span class="inputAlert" id="mobileAlert"></span>
 				</li>
 				<li class="email_wrap">
-					<label for="emailId" class="label">이메일 </label>
-					<input type="text" name="emailId" id="emailId" />
+					<label for="email" class="label">이메일 </label>
+					<input type="text" name="email" id="email" />
 					<span class="atSign">@</span>
 					<input type="text" name="emailDomain" id="emailDomain" title="이메일도메인" />
 				</li>
@@ -60,7 +63,7 @@
 
 	</section>
 	</div>
-
+</form>
 </body>
 <script type="text/javascript" language="javascript">
 </script>
