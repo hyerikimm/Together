@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,8 +28,16 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 				<a href="${pageContext.request.contextPath}/board/boardList" class="">방명록</a>
 			</div>
 			<div class="login">
-				<a href="${pageContext.request.contextPath}/member/loginForm" class="">로그인</a>
-				<a href="${pageContext.request.contextPath}/member/joinForm" class="">회원가입</a>
+				<c:choose>
+					<c:when test="${ isLogin }">
+						<a href="/home/mypage/member/modify.do" class="fb">[<strong>${LoginVO.userNm } </strong>님, 마이페이지]</a>
+						<a href="/home/member/logout.do" class="memUtilOut">로그아웃</a>
+					</c:when>
+					<c:otherwise>
+						<a href="${pageContext.request.contextPath}/member/login.do">로그인</a>
+						<a href="${pageContext.request.contextPath}/member/join.do">회원가입</a>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 	

@@ -3,6 +3,9 @@ package com.hr.together.member.controlller;
 import java.io.IOException;
 import java.util.Locale;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -10,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,19 +41,55 @@ public class MemberController {
 		this.kakao = kakao;
 	}
 	
-	@RequestMapping(value = "member/loginForm", method = {RequestMethod.GET })
-	public String login(Model model, HttpSession session) {
-
-		logger.info(">> 로그인 폼으로 이동");
-		return "member/loginForm";
+	@RequestMapping(value="/member/login.do")
+	public String login(HttpServletRequest request, HttpServletResponse response, HttpSession session, Member member, Model model) throws Exception {
+		try {
+			//로그아웃시 파라미터 없이 접근하며 이하 구문 실행됨
+			session.removeAttribute("LoginVO");
+			//모든 쿠키 제거(path가 일치하지 않는 항목은 삭제되지 않음에 유의)
+			Cookie[] cookies = request.getCookies();
+			if(cookies != null){
+				for(int i=0; i < cookies.length; i++){
+					//System.out.println("[Name(" + i + ")]" + cookies[i].getName() + ", path:" + cookies[i].getPath() + ", domain:" + cookies[i].getDomain());
+					// 쿠키의 유효시간을 0으로 설정하여 바로 만료시킨다.
+					cookies[i].setMaxAge(0);
+					cookies[i].setPath("/");
+					// 응답에 쿠키 추가
+					response.addCookie(cookies[i]);
+				}
+			}
+			model.addAttribute("member", member);
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
+		return "/member/loginForm";
 	}
 	
-	@RequestMapping(value = "member/joinForm", method = {RequestMethod.GET })
-	public String joinMember(Model model, HttpSession session) {
+	@RequestMapping(value = "/member/join.do", method = {RequestMethod.GET })
+	public String joinMember(Model model, HttpSession session) throws Exception {
 
-		logger.info(">> 회원가입 폼으로 이동");
-		return "member/joinForm";
+		return "/member/joinForm";
 	}
+	
+	@RequestMapping(value = "/member/loginProcess.do", method = {RequestMethod.POST })
+	public String loginProcess(Model model, HttpSession session, Member member) throws Exception {
+		//member.setUserPwd(CommonUtil.encryptSHA256(member.getUserPwd()));
+		member.setUserPwd(member.getUserPwd());
+		logger.debug("memberVO.getUserPwd()=>" + member.getUserPwd());
+		Member resultVO = memberService.selectMemberViewByLogin(member);
+		
+		if(resultVO != null ){
+			session.setAttribute("LoginVO", resultVO);
+		}else{
+			model.addAttribute("PARAM_URL", "/member/loginForm");
+			model.addAttribute("alertMsg", "로그인 정보가 올바르지 않거나 가입된 회원이 아닙니다.");
+
+			//return "/cmm/alertMessage";
+			return "redirect:/";
+		}
+		return "redirect:/";
+	}
+	
 	/*
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, HttpSession session, Member member) {

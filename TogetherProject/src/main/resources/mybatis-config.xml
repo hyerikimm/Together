@@ -20,10 +20,10 @@
 
 	<!-- typeAlias : VO/DTO클래스들의 풀 클래스명 대신 단순한 클래스명으로 사용하기 위해 별칭을 등록할 수 있는 영역 -->
 	 
-	<!-- <typeAliases>
-		<typeAlias type="com.kh.spring.member.model.vo.Member" alias ="member"/>
-		
-		<typeAlias type="com.kh.spring.board.model.vo.Board" alias ="board" />
+ 	<typeAliases>
+		<typeAlias type="com.hr.together.member.model.vo.Member" alias ="member"/>
+		<typeAlias type="com.hr.together.board.model.vo.MainBoard" alias ="board" />
+		<!--	
 		<typeAlias type="com.kh.spring.board.model.vo.Reply" alias ="reply" />
 		<typeAlias type="com.kh.spring.board.model.vo.BoardType" alias ="boardType" />
 		<typeAlias type="com.kh.spring.board.model.vo.BoardImg" alias ="boardImg" />
@@ -31,7 +31,8 @@
 		<typeAlias type="com.kh.spring.chat.model.vo.ChatMessage" alias ="chatMessage" />
 		<typeAlias type="com.kh.spring.chat.model.vo.ChatRoom" alias ="chatRoom" />
 		<typeAlias type="com.kh.spring.chat.model.vo.ChatRoomJoin" alias ="chatRoomJoin" />
-	</typeAliases>  -->
+		-->
+	</typeAliases>  
 	<!-- 
 		environments, dataSource에 기술했던 DB연결정보는 root-context.xml에 작성한다.
 		-> DB등록은 서버 연동과 "동시에" 이루어져야하기 때문에
@@ -47,11 +48,10 @@
   
   <!-- mapper : 실행할 sql문들을 기록해둔 mapper파일들을 등록하는 영역 -->
   <!-- 사용가능한 자원 등록  -->
- <!--  <mappers>
+  <mappers>
     <mapper resource="/mappers/member-mapper.xml"/>
     <mapper resource="/mappers/board-mapper.xml"/>
-  	<mapper resource="/mappers/chatting-mapper.xml"/>
-  </mappers> -->
+  </mappers>
   
   
 </configuration>
