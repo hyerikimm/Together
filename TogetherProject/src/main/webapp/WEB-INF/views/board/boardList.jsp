@@ -39,7 +39,7 @@
 					<th scope="col" class="title">제목</th>
 					<th scope="col" class="writeNm">작성자</th>
 					<th scope="col" class="fileYn">파일</th>
-					<th scope="col" class="regDt">등록일</th>
+					<th scope="col" class="regDate">등록일</th>
 					<th scope="col" class="readCnt">조회수</th>
 				</tr>
 			</thead>

@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="/together/resources/css/member/loginForm.css">
 <link rel="stylesheet" href="/together/resources/css/member/joinForm.css">
 <link rel="stylesheet" href="/together/resources/css/common/main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>join</title>
 </head>
 <body>
